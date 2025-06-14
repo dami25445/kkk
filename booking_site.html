@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .booking-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .confirmation {
+      margin-top: 1rem;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="booking-container">
+    <h2>Book a Service</h2>
+    <form id="bookingForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="service">Service</label>
+      <select id="service" required>
+        <option value="">Choose a service</option>
+        <option value="Cleaning">Cleaning</option>
+        <option value="Consultation">Consultation</option>
+        <option value="Repair">Repair</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required />
+
+      <label for="time">Time</label>
+      <input type="time" id="time" required />
+
+      <button type="submit">Book Now</button>
+    </form>
+    <div class="confirmation" id="confirmationMessage"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("bookingForm");
+    const confirmation = document.getElementById("confirmationMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      confirmation.textContent = `Thanks ${name}, your booking has been received!`;
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
